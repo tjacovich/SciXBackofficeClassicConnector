@@ -1,0 +1,86 @@
+[project]
+name = "SciXBackofficeConnector"
+version = "0.0.1"
+description = "The Kafka Connector for pulling the current master database into the new SciX Architecture."
+authors = [{ name = "Taylor Jacovich", email = "tjacovich@cfa.harvard.edu"}]
+license = { text = "GPL-3.0" }
+readme = "README.md"
+#repository = "https://github.com/tjacovich/SciXIngestParserPipeline"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+]
+
+packages = [
+    "SciXBacofficeConnector",
+]
+
+dependencies = [
+    'confluent-kafka==1.9.2',
+    'fastavro==1.7.2',
+    'requests==2.29.0',
+]
+
+[project.urls]
+Source = "https://github.com/tjacovich/SciXBackofficeConnectorPipeline"
+
+[project.optional-dependencies]
+dev = [
+    'black==22.3.0',
+    'flake8==4.0.1',
+    'isort==5.12.0',
+    'pytest==7.3.1',
+    'pyupgrade==2.29.1',
+    'pytest-mock==3.6.1',
+    'pre-commit==2.16.0',
+    'coveralls==3.3.1',
+    'mock==4.0.3',
+    'coverage==6.2',
+    'pytest-cov==4.0.0',
+    'pytest-cookies==0.6.1',
+    'pytest-asyncio==0.21.0',
+    'requests_mock==1.1.0',
+    'grpcio-tools==1.50.0',
+    'httpretty==1.1.4',
+]
+
+#[tool.pytest.ini_options]
+#addopts = "--cov=SciXBackofficeConnector/parser --cov=SciXBackofficeConnector/API --cov-report=term-missing"
+#cache_dir = ".tmp/"
+#testpaths = [
+#    "SciXBackofficeConnector/tests",
+#]
+#pythonpath = [
+#    "SciXBackofficeConnector/",
+#]
+
+[tool.coverage.run]
+data_file = "SciXBackofficeConnector/.coverage"
+
+[tool.coverage.report]
+skip_empty = true
+skip_covered = true
+
+[tool.isort]
+profile = "black"
+known_first_party = ["parser", "API", "tests",]
+
+[tool.black]
+line-length = 99 # override black's default line-length
+
+[build-system]
+requires = ["setuptools==60.10.0", "wheel", "flit_core >=3.2,<4", "ppsetuptools==2.0.2"]
+build-backend = "flit_core.buildapi"
+#build-backend = "setuptools.build_meta"
+
+# see setup.py for explanation of these
+[xsetup.entry_points]
+console_scripts = [
+    "adsingestp=adsingestp.cli:cli",
+]
+[xsetup]
+scripts = [
+]
