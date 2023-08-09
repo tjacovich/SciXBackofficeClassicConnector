@@ -10,6 +10,10 @@
         "database.dbname" : "master",
         "database.server.name": "postgres",
         "table.include.list": "public.records",
+        "transforms": "Reroute",
+        "transforms.Reroute.type": "io.debezium.transforms.ByLogicalTableRouter",
+        "transforms.Reroute.topic.regex": "(.*)records(.*)",
+        "transforms.Reroute.topic.replacement": "HARVESTER_INPUT_SCHEMA",
         "value.converter": "io.confluent.connect.avro.AvroConverter",
         "value.converter.schema.registry.url": "http://schema-registry:8081"
         }
