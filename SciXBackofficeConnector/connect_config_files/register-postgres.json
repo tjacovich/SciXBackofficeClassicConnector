@@ -2,18 +2,20 @@
     "name": "master-connector",
     "config": {
         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "topic.prefix":"test",
         "tasks.max": "1",
+        "plugin.name":"pgoutput",
         "database.hostname": "postgres",
         "database.port": "5432",
         "database.user": "postgres",
-        "database.password": "postgres",
-        "database.dbname" : "master",
+        "database.password": "root",
+        "database.dbname" : "master_pipeline",
         "database.server.name": "postgres",
         "table.include.list": "public.records",
         "transforms": "Reroute",
         "transforms.Reroute.type": "io.debezium.transforms.ByLogicalTableRouter",
         "transforms.Reroute.topic.regex": "(.*)records(.*)",
-        "transforms.Reroute.topic.replacement": "HARVESTER_INPUT_SCHEMA",
+        "transforms.Reroute.topic.replacement": "HARVESTER_CLASSIC_TOPIC",
         "value.converter": "io.confluent.connect.avro.AvroConverter",
         "value.converter.schema.registry.url": "http://schema-registry:8081"
         }

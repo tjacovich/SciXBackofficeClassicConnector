@@ -1,0 +1,394 @@
+{
+	"type": "record",
+	"name": "Envelope",
+	"namespace": "HARVESTER_CLASSIC_TOPIC",
+	"fields": [
+		{
+			"name": "before",
+			"type": [
+				"null",
+				{
+					"type": "record",
+					"name": "Value",
+					"fields": [
+						{
+							"name": "id",
+							"type": {
+								"type": "int",
+								"connect.default": 0
+							},
+							"default": 0
+						},
+						{
+							"name": "bibcode",
+							"type": "string"
+						},
+						{
+							"name": "status",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "bib_data",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "orcid_claims",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "nonbib_data",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "fulltext",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "bib_data_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "orcid_claims_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "nonbib_data_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "fulltext_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "created",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "processed",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "metrics",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "metrics_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "solr_processed",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "metrics_processed",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "datalinks_processed",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "solr_checksum",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "metrics_checksum",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "datalinks_checksum",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "augments",
+							"type": [
+								"null",
+								"string"
+							],
+							"default": null
+						},
+						{
+							"name": "augments_updated",
+							"type": [
+								"null",
+								{
+									"type": "long",
+									"connect.version": 1,
+									"connect.name": "io.debezium.time.MicroTimestamp"
+								}
+							],
+							"default": null
+						}
+					],
+					"connect.name": "HARVESTER_CLASSIC_TOPIC.Value"
+				}
+			],
+			"default": null
+		},
+		{
+			"name": "after",
+			"type": [
+				"null",
+				"Value"
+			],
+			"default": null
+		},
+		{
+			"name": "source",
+			"type": {
+				"type": "record",
+				"name": "Source",
+				"namespace": "io.debezium.connector.postgresql",
+				"fields": [
+					{
+						"name": "version",
+						"type": "string"
+					},
+					{
+						"name": "connector",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "ts_ms",
+						"type": "long"
+					},
+					{
+						"name": "snapshot",
+						"type": [
+							{
+								"type": "string",
+								"connect.version": 1,
+								"connect.parameters": {
+									"allowed": "true,last,false,incremental"
+								},
+								"connect.default": "false",
+								"connect.name": "io.debezium.data.Enum"
+							},
+							"null"
+						],
+						"default": "false"
+					},
+					{
+						"name": "db",
+						"type": "string"
+					},
+					{
+						"name": "sequence",
+						"type": [
+							"null",
+							"string"
+						],
+						"default": null
+					},
+					{
+						"name": "schema",
+						"type": "string"
+					},
+					{
+						"name": "table",
+						"type": "string"
+					},
+					{
+						"name": "txId",
+						"type": [
+							"null",
+							"long"
+						],
+						"default": null
+					},
+					{
+						"name": "lsn",
+						"type": [
+							"null",
+							"long"
+						],
+						"default": null
+					},
+					{
+						"name": "xmin",
+						"type": [
+							"null",
+							"long"
+						],
+						"default": null
+					}
+				],
+				"connect.name": "io.debezium.connector.postgresql.Source"
+			}
+		},
+		{
+			"name": "op",
+			"type": "string"
+		},
+		{
+			"name": "ts_ms",
+			"type": [
+				"null",
+				"long"
+			],
+			"default": null
+		},
+		{
+			"name": "transaction",
+			"type": [
+				"null",
+				{
+					"type": "record",
+					"name": "block",
+					"namespace": "event",
+					"fields": [
+						{
+							"name": "id",
+							"type": "string"
+						},
+						{
+							"name": "total_order",
+							"type": "long"
+						},
+						{
+							"name": "data_collection_order",
+							"type": "long"
+						}
+					],
+					"connect.version": 1,
+					"connect.name": "event.block"
+				}
+			],
+			"default": null
+		}
+	],
+	"connect.version": 1,
+	"connect.name": "HARVESTER_CLASSIC_TOPIC.Envelope"
+}
